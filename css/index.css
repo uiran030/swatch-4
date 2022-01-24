@@ -1,0 +1,199 @@
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/css?family=Righteous);
+
+html { overflow:hidden }
+body { font:12px/1.6 arial; color:#555; }
+
+
+.autoClock {
+    position:fixed; 
+    top:100px; left:200px; 
+    z-index:9999;
+    font-size:30px; 
+    color:#000;
+    width:500px;
+    transform:rotate(0deg);
+    transition:all 0.5s;
+}
+.autoClock.on2 {
+    left:90%;
+    transform:rotate(90deg);
+    transform-origin: 0% 100%;
+}
+.autoClock.on3 {
+    left:200px;
+    top:90%;
+    transform:rotate(0deg);
+}
+
+
+#menu { position:fixed; top:50%; transform:translateY(-50%); left:50px; z-index:99 }
+#menu li {  margin:10px 0  }
+#menu li a { display:block; height:20px;  width:20px;
+    border-radius:50%; background-color:red;
+    position:relative 
+}
+#menu li.on a { background-color:blue; transform:scale(1.2) }
+#menu li a span { position:absolute; top:3px; left:30px; 
+    width:100px; display:none; }    
+#menu li.on a span { display:block }
+
+
+
+
+section { 
+    width:100vw; 
+    height:100vh; 
+    position:relative;
+    border:1px solid #f00;
+    overflow:hidden; 
+}
+
+.slideInner { position:relative }
+.slideInner .slide {
+    height:100vh; 
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:right center;
+    position:relative;
+}
+.slideInner .slide1 {
+    background-image:url(../img/bg1.jpg)
+}
+.slideInner .slide2 {
+    background-image:url(../img/bg2.jpg)
+}
+.slideInner .slide3 {
+    background-image:url(../img/bg3.jpg)
+}
+.slideInner .slide4 {
+    background-image:url(../img/bg4.jpg)
+}
+.slideInner .text { position:absolute;  top:50%;
+    transform:translateY(-50%); left:300px; 
+    font-size:80px; width:600px; }
+
+.slideInner .text p:nth-child(1) { 
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+}
+.slideInner .text p:nth-child(2) { 
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+}
+.slideInner .slide.slick-active .text p:nth-child(1) {
+    animation:fadeInRight 0.5s both 0.6s;
+}
+.slideInner .slide.slick-active .text p:nth-child(2) {
+    animation:fadeInLeft 0.5s both 0.6s;
+}
+
+.slideInner .slide1 .text p { 
+    background: linear-gradient(to right, #f00, #00f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+ }
+.slideInner .slide2 .text p { 
+    background: linear-gradient(to left, #f00 40%, #00f 60%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.slideInner .slide3 .text p { 
+    background: linear-gradient(to right top, #f00 30%, #00f 70%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+ }
+.slideInner .slide4 .text p { 
+    background: linear-gradient(to right, #f00 10%, #00f 15%, #0f0 35%, #f0f 50%, #0ff 60%, #ff5800 75%, #f05 87%, #ff7fd3 95%, #326d18 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.slideInner .slick-dots {
+    position:absolute; 
+    bottom:50px; 
+    width:100%; 
+    text-align:center; 
+}
+.slideInner .slick-dots li { 
+    display:inline-block;
+    width:100px; height:3px; background-color:#fff;
+    margin:0 3px; 
+    position:relative; 
+}
+/* .slideInner .slick-dots li:nth-child(2):before {  
+    content:'홍길동 홍길동 홍길동';
+    word-break:keep-all; line-height:1.2;
+    color:#fff;
+    font-size:16px;
+    position:absolute; bottom:3px; left:0;
+    width:100%; text-align:center; 
+} */
+
+.slideInner .slick-dots li button { 
+    border:none; 
+    width:0px; height:3px; background-color:#f00;
+    text-indent:-9999px; 
+    overflow:hidden; 
+    position:absolute; top:0; left:0; 
+    transition:all 0s;
+}
+.slideInner .slick-dots li.slick-active button { 
+    width:100px; 
+    transition:all 2s;
+}
+.slideOuter { position:relative }
+.slideOuter .plpa {
+    position:absolute; bottom:40px;
+    left:50%; border:none;
+    font-size:30px;
+    color:#fff; margin-left:230px; 
+}
+
+
+/* 두번째 박스(스킬 그래프) */
+#sect2 { display: flex; align-items: center; justify-content: center; }
+.skillContainer { width: 70%; margin-left: 200px; }
+.skillContainer > div {
+    height:80px;
+    margin:30px 0; 
+    border:1px solid #000; 
+    box-shadow:0px 0px 10px #f00;
+    border-radius:50px;
+    position:relative;
+    display: flex;
+}
+.skillContainer > div > p {
+    position:absolute; 
+    right:100%;
+    font-size:20px;
+    transform: translateX(-20px);
+    align-self: center;
+}
+.skillContainer > div > .score { 
+    border-radius: 50px 0 0 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    align-items:center;
+    transition:all 1s;
+}
+.skillContainer > div.html > .score { width:0%; background:blue; transition-delay: 0s;}
+.skillContainer > div.css > .score { width:0%; background:green; transition-delay: 0s;}
+.skillContainer > div.script > .score { width:0%; background:orange; transition-delay: 0s;}
+.skillContainer > div.jquery > .score { width:0%; background:pink; transition-delay: 0s;}
+.skillContainer > div.react > .score { width:0%; background:brown; transition-delay: 0s;}
+
+.skillContainer.on> div.html > .score { width:70%; }
+.skillContainer.on> div.css > .score { width:60%; }
+.skillContainer.on> div.script > .score { width:80%; }
+.skillContainer.on> div.jquery > .score { width:60%; }
+.skillContainer.on> div.react > .score { width:50%; }
+
+.skillContainer > div > .score > .myscore {
+    font-size:20px; 
+    opacity:1; 
+    color:white;
+    padding-right: 30px;
+}
